@@ -4,5 +4,5 @@
 Author: Loc Do
 Email: lockunlatui@gmail.com
 ```
-![slide](https://s3.gifyu.com/images/Screen-Recording-2021-04-24-at-18.36.32.gif)
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+![Alt Text](https://s3.gifyu.com/images/Screen-Recording-2021-04-24-at-18.36.32.gif)
