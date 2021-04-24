@@ -22,4 +22,64 @@
 // ];
 
 const galleryItem = document.querySelectorAll('.gallery-item');
-console.log('galleryItem', galleryItem)
+
+const galleryNavItem = document.querySelectorAll('.gallery-nav-item');
+
+let currentDot = 0;
+
+const btnPrev = document.querySelector('.zm-carousel-control-prev');
+
+const btnNext = document.querySelector('.zm-carousel-control-next');
+
+const removeAllClass = () => {
+  galleryItem.forEach((item) => {
+    item.classList.remove('gallery-item-first');
+    item.classList.remove('gallery-item-previous');
+    item.classList.remove('gallery-item-selected');
+    item.classList.remove('gallery-item-next');
+    item.classList.remove('gallery-item-last');
+  });
+
+  galleryNavItem.forEach((item) => {
+    item.classList.remove('nav-item-selected');
+  });
+};
+
+const update = () => {
+  galleryNavItem[currentDot].classList.add('nav-item-selected');
+  galleryItem[currentDot].classList.add('gallery-item-selected');
+  galleryItem[currentDot > 0 ? currentDot - 1 : 4].classList.add(
+    'gallery-item-next'
+  );
+  galleryItem[currentDot < 4 ? currentDot + 1 : 0].classList.add(
+    'gallery-item-previous'
+  );
+
+  galleryItem[currentDot > 1 ? currentDot - 2 : currentDot + 3].classList.add(
+    'gallery-item-last'
+  );
+  galleryItem[currentDot < 3 ? currentDot + 2 : currentDot - 3].classList.add(
+    'gallery-item-first'
+  );
+};
+
+btnNext.addEventListener('click', () => {
+  removeAllClass();
+  if (currentDot >= 0 && currentDot < 4) {
+    currentDot += 1;
+  } else {
+    currentDot = 0;
+  }
+  update();
+ 
+});
+
+btnPrev.addEventListener('click', () => {
+  removeAllClass();
+  if (currentDot === 0) {
+    currentDot = 4;
+  } else {
+    currentDot -= 1;
+  }
+  update();
+});
